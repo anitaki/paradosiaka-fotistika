@@ -80,12 +80,34 @@ if (quoteForm) {
   }
 }
 
+// Phone check: digits, spaces, dashes, brackets and a leading +; 10–15 digits (Greek or international)
+const PHONE_MESSAGE = {
+  gr: "Συμπληρώστε έναν έγκυρο αριθμό τηλεφώνου (π.χ. 697 123 4567).",
+  en: "Please enter a valid phone number (e.g. +30 697 123 4567).",
+};
+
+function checkPhone(input) {
+  const value = input.value.trim();
+  const digits = value.replace(/\D/g, "").length;
+  const valid = value === "" || (/^\+?[0-9 ()\-]+$/.test(value) && digits >= 10 && digits <= 15);
+  input.setCustomValidity(valid ? "" : PHONE_MESSAGE[readStoredLang()]);
+}
+
+if (quoteForm) {
+  const phoneInput = quoteForm.elements.namedItem("phone");
+  phoneInput.addEventListener("input", () => checkPhone(phoneInput));
+  phoneInput.addEventListener("blur", () => checkPhone(phoneInput));
+  // re-check right before the browser validates the form (also covers autofilled numbers)
+  quoteForm.querySelector("button[type=submit]").addEventListener("click", () => checkPhone(phoneInput));
+}
+
 if (quoteForm) {
   const status = document.getElementById("form-status");
   const submitButton = quoteForm.querySelector("button[type=submit]");
 
   quoteForm.addEventListener("submit", async (event) => {
     event.preventDefault();
+    checkPhone(quoteForm.elements.namedItem("phone"));
     if (!quoteForm.reportValidity()) return;
 
     const lang = readStoredLang();
