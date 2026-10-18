@@ -17,7 +17,7 @@ h1 {
 
   text-align: center;
   font-stretch: ultra-expanded;
-  color: rgb(53, 5, 65);
+  color: #1e4436;
 
   margin: 4.5rem auto 0 auto;
 }
@@ -27,7 +27,7 @@ h2 {
   text-align: center;
   font-stretch: ultra-expanded;
   font-size: 1.2rem;
-  color: rgba(29, 55, 46, 1);
+  color: #8a6a2e;
 }
 
 .img-liston {
@@ -101,11 +101,10 @@ h2 {
 }
 
 .kolones {
-  background-image: url(../resources/images/Images/sky\ grey\ cyan.webp);
-  /* background-image: url(../resources/images/Images/test7.jpg); */
+  background-color: #ded9de;
+  background-image: url(../resources/images/Images/kolones-bg.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  filter: sepia(0.08);
 }
 
 .krani {
@@ -165,62 +164,36 @@ div.polaroid img {
 }
 
 .call-to-action-button {
-  width: 14rem;
-  margin: 3rem 0 4rem 0;
-  padding: 0.5rem 3rem;
-  text-align: center;
-  vertical-align: middle;
-  padding: 12px 24px;
-  border: 1px solid #aba7a5;
-  border-radius: 8px;
-  background: #fcf6e8;
-  background: -webkit-gradient(
-    linear,
-    left top,
-    left bottom,
-    from(#fcf6e8),
-    to(#d6afca)
-  );
-  background: -moz-linear-gradient(top, #fcf6e8, #d6afca);
-  background: linear-gradient(to bottom, #fcf6e8, #d6afca);
-  -webkit-box-shadow: #ffffff 0px 0px 40px 0px;
-  -moz-box-shadow: #ffffff 0px 0px 40px 0px;
-  box-shadow: #ffffff 0px 0px 40px 0px;
-  text-shadow: #ffffff 1px 1px 1px;
-  font-size: 1.3rem;
-  font-family: sans-serif;
-  font-weight: bold;
-  color: #350541;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 52px;
+  margin: 2.5rem 0 3rem 0;
+  padding: 0 32px;
+  border: 0;
+  border-radius: 999px;
+  background: #1e4436;
+  box-shadow: 0 10px 24px -14px rgba(20, 32, 28, 0.85);
+  color: #ffffff;
+  font-family: "Manrope", system-ui, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
   text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .call-to-action-button:hover,
-.call-to-action-button:focus {
-  border: 1px solid #ddcedd;
-  background: #ffffff;
-  background: -webkit-gradient(
-    linear,
-    left top,
-    left bottom,
-    from(#ffffff),
-    to(#e0c9e0)
-  );
-  background: -moz-linear-gradient(top, #ffffff, #e0c9e0);
-  background: linear-gradient(to bottom, #ffffff, #e0c9e0);
-  color: #350541;
-  text-decoration: none;
+.call-to-action-button:focus-visible {
+  background: #122b22;
+  color: #ffffff;
+  transform: translateY(-1px);
 }
-.call-to-action-button:active {
-  background: #dfdbd2;
-  background: -webkit-gradient(
-    linear,
-    left top,
-    left bottom,
-    from(#dfdbd2),
-    to(#d6afca)
-  );
-  background: -moz-linear-gradient(top, #dfdbd2, #d6afca);
-  background: linear-gradient(to bottom, #dfdbd2, #d6afca);
+
+.call-to-action-button:focus-visible {
+  outline: 2px solid #c9a45c;
+  outline-offset: 3px;
 }
 
 @media (max-width: 768px) {
@@ -243,7 +216,6 @@ div.polaroid img {
     height: 55vh;
     margin: 2rem 0 0 0;
   }
-
   .fotistika {
     background-image: url(../resources/images/Images/Wallpaper\ mobile.webp);
     /* background-image: url(/resources/images/Images/Huneycutt\ Textured\ \ Wallpaper.webp); */
@@ -256,10 +228,7 @@ div.polaroid img {
   }
 
   .kolones {
-    background-image: url(../resources/images/Images/sky\ cyan.webp);
-    background-repeat: no-repeat;
-    background-size: cover;
-    filter: sepia(0.2);
+    background-image: url(../resources/images/Images/kolones-bg-mobile.jpg);
   }
 
   .krani {
@@ -271,9 +240,5 @@ div.polaroid img {
     font-size: 1rem;
     padding: 0 0.6rem 5rem 0.6rem;
     margin: 5rem 0 0 0;
-  }
-
-  .call-to-action-button {
-    font-weight: normal;
   }
 }

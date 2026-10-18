@@ -13,9 +13,9 @@ footer {
     180deg,
     #ffffff 65.08%,
     #ebe6db 60.38%,
-    #ae8da1 88.58%,
-    #a6819a 97.87%,
-    rgba(53, 5, 65, 0.5) 99%
+    #e3d4b0 88.58%,
+    #d2b77e 97.87%,
+    #c9a45c 99%
   );
   /* background: linear-gradient(180deg,#EBE6DB 34.38%, rgb(235, 43, 227, 0.5) 100%); */
 }
@@ -26,13 +26,13 @@ footer a {
 }
 
 footer a:hover {
-  color: rgb(85, 26, 139);
+  color: #1e4436;
   text-decoration: underline;
   text-underline-offset: 0.2rem;
 }
 
 footer a:active {
-  color: rgba(246, 151, 243, 1);
+  color: #8a6a2e;
   text-decoration: underline;
   text-underline-offset: 0.1rem;
 }
@@ -53,7 +53,7 @@ footer a:active {
 
 .to-top:hover {
   cursor: pointer;
-  color: rgb(85, 26, 139);
+  color: #8a6a2e;
 }
 
 .to-top-image {
