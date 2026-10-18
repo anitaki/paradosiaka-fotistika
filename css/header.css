@@ -673,3 +673,8 @@
     display: none;
   }
 }
+
+/* room under the page while the cookie notice is open (value set by header.js) */
+body.has-cookie-banner .site-footer {
+  padding-bottom: var(--cookie-space, 0px);
+}

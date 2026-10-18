@@ -199,14 +199,22 @@ cookieBanner.innerHTML = `
   </div>`;
 document.body.appendChild(cookieBanner);
 
+// while the notice is open, the page gets extra space at the bottom so it never covers content for good
+const bannerSpace = () => {
+  document.documentElement.style.setProperty("--cookie-space", cookieBanner.hidden ? "0px" : `${cookieBanner.offsetHeight + 24}px`);
+};
+if ("ResizeObserver" in window) new ResizeObserver(bannerSpace).observe(cookieBanner);
+
 function showCookieBanner() {
   cookieBanner.hidden = false;
   document.body.classList.add("has-cookie-banner");
+  bannerSpace();
 }
 
 function hideCookieBanner() {
   cookieBanner.hidden = true;
   document.body.classList.remove("has-cookie-banner");
+  bannerSpace();
 }
 
 cookieBanner.querySelector(".cookie-accept").addEventListener("click", () => {

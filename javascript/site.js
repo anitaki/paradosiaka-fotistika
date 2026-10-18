@@ -89,8 +89,7 @@ if (quoteForm) {
     if (!quoteForm.reportValidity()) return;
 
     const lang = readStoredLang();
-    const data = Object.fromEntries(new FormData(quoteForm));
-    if (data._honey) return; // spam bot filled the hidden field
+    const data = Object.fromEntries(new FormData(quoteForm)); // _honey is checked by FormSubmit itself
 
     const label = submitButton.textContent;
     submitButton.disabled = true;
@@ -103,7 +102,8 @@ if (quoteForm) {
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify(data),
       });
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok || String(result.success) !== "true") throw new Error(result.message || `HTTP ${response.status}`);
       quoteForm.reset();
       status.textContent = FORM_TEXT.sent[lang];
     } catch (error) {
